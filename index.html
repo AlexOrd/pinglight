@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>PingLight</title>
+
+    <!-- Підключення Tailwind CSS для швидкого та адаптивного стилю -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Стилі для фонового відео */
+      #bg-video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -2;
+        transform: translateX(-50%) translateY(-50%);
+        object-fit: cover;
+      }
+
+      /* Затемнення для відео */
+      .video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* 70% затемнення */
+        z-index: -1;
+      }
+
+      /* Додаткові стилі для плавності анімацій */
+      .gallery-item img {
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .overlay {
+        transition: opacity 0.4s ease-in-out;
+      }
+
+      /* Контейнер для контенту, щоб він був поверх відео */
+      .content-container {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-900 text-white font-sans">
+
+    <!-- Фонове відео -->
+    <!-- ЗАМІНІТЬ 'path/to/your/video.mp4' НА ВАШЕ ПОСИЛАННЯ -->
+    <video playsinline
+           autoplay
+           muted
+           loop
+           id="bg-video">
+      <source src="5.mp4"
+              type="video/mp4">
+      Ваш браузер не підтримує тег video.
+    </video>
+    <div class="video-overlay"></div>
+
+    <div class="content-container container mx-auto px-4 py-12 md:py-20">
+
+      <!-- Заголовок сторінки -->
+      <header class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                The PingLight
+            </h1>
+      </header>
+
+      <!-- Контейнер для галереї -->
+      <div class="flex flex-wrap justify-center gap-8">
+
+        <!-- Перший елемент галереї -->
+        <div
+             class="gallery-item group relative w-full sm:w-80 md:w-96 rounded-lg overflow-hidden shadow-2xl bg-black/30">
+          <a href="https://project13629117.tilda.ws/"
+             target="_blank"
+             rel="noopener noreferrer">
+            <img src="1.png"
+                 alt="Зображення для першого проєкту"
+                 onerror="this.src='https://placehold.co/600x400/1a1a1a/ffffff?text=Image+Not+Found'"
+                 class="w-full h-full object-cover">
+            <div
+                 class="overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end justify-center p-6">
+              <span
+                    class="text-xl font-semibold text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Перейти</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Другий елемент галереї -->
+        <div
+             class="gallery-item group relative w-full sm:w-80 md:w-96 rounded-lg overflow-hidden shadow-2xl bg-black/30">
+          <a href="https://pinglight.my.canva.site/"
+             target="_blank"
+             rel="noopener noreferrer">
+            <img src="2.png"
+                 alt="Зображення для другого проєкту"
+                 onerror="this.src='https://placehold.co/600x400/4a4a4a/ffffff?text=Image+Not+Found'"
+                 class="w-full h-full object-cover">
+            <div
+                 class="overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end justify-center p-6">
+              <span
+                    class="text-xl font-semibold text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Перейти</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Третій елемент галереї -->
+        <div
+             class="gallery-item group relative w-full sm:w-80 md:w-96 rounded-lg overflow-hidden shadow-2xl bg-black/30">
+          <a href="https://www.youtube.com"
+             target="_blank"
+             rel="noopener noreferrer">
+            <img src="https://placehold.co/600x400/7a7a7a/ffffff?text=Проєкт+3"
+                 alt="Зображення для третього проєкту"
+                 class="w-full h-full object-cover">
+            <div
+                 class="overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end justify-center p-6">
+              <span
+                    class="text-xl font-semibold text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Перейти</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Футер -->
+      <footer class="text-center text-gray-500 mt-16">
+        <p>&copy; 2025 MS Camp</p>
+      </footer>
+    </div>
+
+    <script>
+      // Уповільнення відтворення відео
+      document.getElementById('bg-video').playbackRate = 0.75;
+    </script>
+  </body>
+
+</html>
